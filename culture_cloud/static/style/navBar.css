@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    margin: 0;
+}
+
+.navBarCont{
+    width: 100%;
+    height: 60px;
+    background-color: #fe6f5e;
+}
+
+.logoCont{
+    width: fit-content;
+    height: 100%;
+    display: inline-flex;
+    align-items: center;
+    margin-left: 20px;
+    user-select: none;
+    cursor: pointer;
+}
+.logoCont h1{
+    font-family: 'Poppins', sans-serif;
+    font-size: 40px;
+    line-height: 40px;
+    color: #ffdbd7;
+}
+
+.navigationCont{
+    width: auto;
+    height: 100%;
+    float: right;
+    display: flex;
+    flex-direction: row;
+    margin-right: 20px;
+    user-select: none;
+}
+.navigationCont > div{
+    width: 150px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+}
+.navigationCont > div h1{
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    white-space: nowrap;
+}
+
+.pageNav:hover,
+.userNav:hover {
+    background-color: rgba(255, 0, 0, 0.5);
+}
+.pageNav:hover > .hiddenNav,
+.userNav:hover > .hiddenNav {
+    display: block;
+}
+
+.hiddenNav{
+    list-style-type: none;
+    position: absolute;
+    display: none;
+    top: 60px;
+    padding: 0;
+    width: 150px;
+    height: auto;
+    background-color: rgba(255, 0, 0, 0.8);
+}
+.hiddenNav a{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.hiddenNav a:hover{
+    background-color: rgba(255, 0, 0, 1);
+}

@@ -1,0 +1,28 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'style/navBar.css' %}">
+<div class="navBarCont">
+
+    <div class="logoCont" onclick="window.location.href='/'">
+        <h1>Culture Cloud</h1>
+    </div>
+    <div class="navigationCont">
+        <div class="pageNav">
+            <h1>Page Sections</h1>
+            <ul class="hiddenNav">
+                <a href="">Home</a>
+                <a href="">Other Page</a>
+                <a>Another Page</a>
+            </ul>
+        </div>
+        <div class="userNav">
+            <h1>User Access</h1>
+            <ul class="hiddenNav">
+                <a>Log In</a>
+                <a>Sign Up</a>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+
+<script src="{% static 'script/navBar.js' %}">
