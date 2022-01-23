@@ -1,87 +1,232 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
+:root {
+    --navColor: #46a2ff;
+}
+
 * {
     margin: 0;
 }
 
+/* <---------------------------- Page Blur ----------------------------> */
+
+.pageBackDrop{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+    backdrop-filter: blur(2px);
+    display: none;
+}
+.displayBackDrop{
+    display: block;
+}
+
+/* <---------------------------- Navigation Bar ----------------------------> */
+
 .navBarCont{
     width: 100%;
     height: 60px;
-    background-color: #fe6f5e;
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    z-index: 5;
+    background-color: #000000;
 }
 
 .logoCont{
     width: fit-content;
     height: 100%;
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    margin-left: 20px;
+    margin-left: 100px;
     user-select: none;
     cursor: pointer;
+    overflow: hidden;
 }
 .logoCont h1{
     font-family: 'Poppins', sans-serif;
     font-size: 40px;
     line-height: 40px;
-    color: #ffdbd7;
+    white-space: nowrap;
+    color: var(--navColor);
 }
 
-.navigationCont{
-    width: auto;
+.searchCont{
+    width: fit-content;
     height: 100%;
-    float: right;
+    margin-left: 80px;
     display: flex;
-    flex-direction: row;
-    margin-right: 20px;
-    user-select: none;
+    align-items: center;
+    position: relative;
 }
-.navigationCont > div{
-    width: 150px;
-    height: 100%;
+
+.searchBtn{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    position: relative;
+    border: none;
+
+    background-color: rgb(255, 255, 255);  
 }
-.navigationCont > div h1{
-    font-family: 'Poppins', sans-serif;
-    font-size: 20px;
-    white-space: nowrap;
+.searchBtn:hover{
+    background-color: rgb(191, 191, 191);
+}
+.fa-search:nth-child(1){
+    margin-top: 2px;
 }
 
-.pageNav:hover,
-.userNav:hover {
-    background-color: rgba(255, 0, 0, 0.5);
-}
-.pageNav:hover > .hiddenNav,
-.userNav:hover > .hiddenNav {
-    display: block;
+.searchInput{
+    width: 600px;
+    height: 35px;
+    border-radius: 25px 25px 25px 25px;
+    outline: none;
+    border: none;
+    float: right;
+    padding: 0 10px 0 35px;
+    background-color: rgb(255, 255, 255);
+    font-family: 'Poppins',sans-serif;
+    font-weight: bold;
+    font-size: 15px;
 }
 
-.hiddenNav{
-    list-style-type: none;
+.accountCont{
+    height: 100%;
+    width: auto;
     position: absolute;
-    display: none;
-    top: 60px;
-    padding: 0;
-    width: 150px;
-    height: auto;
-    background-color: rgba(255, 0, 0, 0.8);
+    right: 0;
+    margin-right: 20px;
 }
-.hiddenNav a{
-    width: 100%;
-    height: 50px;
-    display: flex;
+.accountCont div{
+    width: fit-content;
+    height: 100%;
+    display: none;
     align-items: center;
-    justify-content: center;
+}
+.accountCont div > a{
+    text-decoration: none;
     font-family: 'Poppins', sans-serif;
     font-size: 20px;
-    text-decoration: none;
-    color: black;
-    white-space: nowrap;
-    overflow: hidden;
+    margin: 0 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
 }
-.hiddenNav a:hover{
-    background-color: rgba(255, 0, 0, 1);
+.accountCont div > a:hover{
+    background-color: rgba(5, 158, 254, 0.8);
+}
+
+.showVisitorCont{
+    display: flex !important;
+}
+
+@media screen and (max-width: 1350px) {
+    .searchInput{
+        width: 40vw;
+    }
+}
+@media screen and (max-width: 1200px) {
+    .searchInput {
+        width: 30vw;
+    }
+}
+@media screen and (max-width: 1050px) {
+    .searchInput {
+        width: 20vw;
+    }
+}
+@media screen and (max-width: 900px) {
+    .accountCont{
+        display: none;
+    }
+    .searchInput {
+        width: 40vw;
+    }
+    .searchCont {
+        margin-left: 5%;
+    }
+}
+@media screen and (max-width: 780px) {
+    .searchInput{
+        width: 28vw;
+    }
+}
+@media screen and (max-width: 640px) {
+    .searchCont {
+        display: none;
+    }
+    .logoCont{
+        margin: 0 auto;
+    }
+}
+/* <---------------------------- Side Navigation Bar ----------------------------> */
+
+.sideMenu{
+    position: fixed;
+    height: 100vh;
+    width: 400px;
+    left: -400px;
+    z-index: 10;
+    transition: left 0.5s ease;
+
+    background-color: rgb(83, 83, 83);
+}
+.showSideMenu{
+    left: 0;
+}
+
+.headerMenuBtn{
+    position: absolute;
+    right: -60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+}
+
+.menuBtn{
+    width: 50px;
+    height: 4px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(255,101,47,.2);
+    transition: all .5s ease-in-out;
+}
+.menuBtn::before,
+.menuBtn::after{
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 4px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(255,101,47,.2);
+    transition: all .5s ease-in-out;
+}
+.menuBtn::before{
+    transform: translateY(-14px);
+}
+.menuBtn::after{
+    transform: translateY(14px);
+}
+
+.headerMenuBtn.openMenu .menuBtn{
+    transform: translateX(-50px);
+    background: transparent;
+    box-shadow: none;
+}
+.headerMenuBtn.openMenu .menuBtn::before{
+    transform: rotate(45deg) translate(35px, -35px);
+}
+.headerMenuBtn.openMenu .menuBtn::after{
+    transform: rotate(-45deg) translate(35px, 35px);
 }

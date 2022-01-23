@@ -1,3 +1,131 @@
-.body{
-    background-color: red;
+
+:root {
+    --contWidth: 1200px;
+}
+
+* {
+    margin: 0;
+}
+
+body{
+    background-color: rgb(255, 255, 255);
+    overflow-x: hidden;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 2100px;
+}
+
+.mainSearchCont{
+    width: var(--contWidth);
+    height: 380px;
+    margin: 130px 0;
+    position: relative;
+    background-color: aliceblue;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ---------------------------Navigation Bar Modifications-------------------------------------- */
+
+.navBarCont{
+    overflow: hidden;
+}
+.searchCont{
+    left: 380px;
+    top: 60px;
+    position: absolute !important;
+    transition: top 0.5s ease;
+}
+.showNavSearch{
+    top: 0;
+}
+
+
+.searchImgItem{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    top: -380px;
+}
+.showSearchImg{
+    top: 0;    
+}
+
+.searchImgItem:nth-child(1){
+    background: url("../images/bannerImgs/russianArchitecture.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center 70%;
+}
+.searchImgItem:nth-child(2){
+    background: url("../images/bannerImgs/cancunBeach.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center 70%;
+}
+.searchImgItem:nth-child(3){
+    background: url("../images/bannerImgs/thailandeseCulture.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center 30%;
+}
+.searchImgItem:nth-child(4){
+    background: url("../images/bannerImgs/hongKong.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center 70%;
+}
+
+@keyframes slideIn {
+    from{
+        top: 380px;
+    }to{
+        top: 0;
+    }
+}
+@keyframes slideOut {
+    from{
+        top: 0;
+    }to{
+        top: -380px;
+    }
+}
+
+.mainSearchForm{
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.mainSearchBar{
+    width: 700px;
+    height: 50px;
+    outline: none;
+    border: 0;
+    border-radius: 25px 25px 25px 25px;
+    padding-left: 55px;
+    padding-right: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    background-color: white;
+}
+.mainSearchBtn{
+    width: 52px;
+    height: 52px;
+    border: none;
+    position: absolute;
+    left: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: white;
+}
+.mainSearchBtn:hover{
+    background-color: rgb(150, 205, 252);
 }
