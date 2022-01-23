@@ -30,6 +30,7 @@
     display: flex;
     flex-direction: row;
     position: fixed;
+    z-index: 5;
     background-color: #000000;
 }
 
@@ -41,11 +42,13 @@
     margin-left: 100px;
     user-select: none;
     cursor: pointer;
+    overflow: hidden;
 }
 .logoCont h1{
     font-family: 'Poppins', sans-serif;
     font-size: 40px;
     line-height: 40px;
+    white-space: nowrap;
     color: var(--navColor);
 }
 
@@ -123,6 +126,45 @@
     display: flex !important;
 }
 
+@media screen and (max-width: 1350px) {
+    .searchInput{
+        width: 40vw;
+    }
+}
+@media screen and (max-width: 1200px) {
+    .searchInput {
+        width: 30vw;
+    }
+}
+@media screen and (max-width: 1050px) {
+    .searchInput {
+        width: 20vw;
+    }
+}
+@media screen and (max-width: 900px) {
+    .accountCont{
+        display: none;
+    }
+    .searchInput {
+        width: 40vw;
+    }
+    .searchCont {
+        margin-left: 5%;
+    }
+}
+@media screen and (max-width: 780px) {
+    .searchInput{
+        width: 28vw;
+    }
+}
+@media screen and (max-width: 640px) {
+    .searchCont {
+        display: none;
+    }
+    .logoCont{
+        margin: 0 auto;
+    }
+}
 /* <---------------------------- Side Navigation Bar ----------------------------> */
 
 .sideMenu{

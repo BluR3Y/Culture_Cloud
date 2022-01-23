@@ -89,7 +89,7 @@ TxtType.prototype.tick = function() {
 
 function searchAnimation(){
     var searchBar = document.getElementsByClassName("searchInput")[0];
-    var searchExamples = ["Russian Cuisine", "Mexico Beaches", "Hong Kong Attractions", "Thailand Museums"];
+    var searchExamples = ["Russian Architecture", "Mexico Beaches", "Hong Kong Attractions", "Thailandese Culture"];
 
     new TxtType(searchBar, searchExamples, 1000);
 }
