@@ -20,4 +20,5 @@ from culture_cloud import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name="index"),
+    path('top/', views.topsection, name="topsection"),  #topsection
 ]
