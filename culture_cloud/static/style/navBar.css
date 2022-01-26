@@ -117,6 +117,7 @@
     padding: 5px 10px;
     border-radius: 5px;
     color: white;
+    cursor: pointer;
 }
 .accountCont div > a:hover{
     background-color: rgba(5, 158, 254, 0.8);

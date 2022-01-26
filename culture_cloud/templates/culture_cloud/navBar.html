@@ -15,13 +15,19 @@
         <input type="text" class="searchInput" placeholder="Russian Cusine" required>
     </form>
     <div class="accountCont">
-        <div class="guestCont showVisitorCont">
-            <a href="#home">Log In</a>
-            <a href="#home">Sign Up</a>
+        <div class="guestCont">
+            <a href="{% url 'signin' %}">Log In</a>
+            <a href="{% url 'signup' %}">Sign Up</a>
         </div>
         <div class="userCont">
-            <a href="#home">Sign Out</a>
+            <a onclick="logOutUser()">Sign Out</a>
         </div>
+        <script>
+            if(localStorage.getItem('user_id') !== null) 
+                document.getElementsByClassName('userCont')[0].classList.add('showVisitorCont');
+            else
+                document.getElementsByClassName('guestCont')[0].classList.add('showVisitorCont');
+        </script>
     </div>
 </div>
 

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'style/signup.css' %}">
+    </head>
+    <body>
+        <form method="POST" action="/signup" id="signupForm">
+            {% csrf_token %}
+            <h1 id="logo">Culture Cloud</h1>
+            <h1 id="signupText">Sign Up</h1>
+
+            <div class="inputContainer">
+                <h1>Invalid: <span>Lol</span></h1>
+                <label for="userNameInput">Username:</label>
+                <input type="text" name="userNameInput" onfocus="highlightCont(this)" onblur="defaultCont(this)" required>
+            </div>
+            <div class="inputContainer">
+                <h1>Invalid: <span></span></h1>
+                <label for="emailInput">Email Address:</label>
+                <input type="text" name="emailInput" onfocus="highlightCont(this)" onblur="defaultCont(this)" required>
+            </div>
+            <div class="inputContainer">
+                <h1>Invalid: <span></span></h1>
+                <label for="passwordInput">Password:</label>
+                <input type="password" name="passwordInput" onfocus="highlightCont(this)" onblur="defaultCont(this)" required>
+            </div>
+            <button type="submit">Create User</button>
+            <h1 id="signInCont">Already Registered? <span onclick="window.location.href=`{% url 'signin' %}`">Log In</span></h1>
+        </form>
+        
+        <script src="{% static 'script/signup.js' %}" async defer></script>
+    </body>
+</html> 

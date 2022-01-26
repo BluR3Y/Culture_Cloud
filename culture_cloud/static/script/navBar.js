@@ -94,6 +94,11 @@ function searchAnimation(){
     new TxtType(searchBar, searchExamples, 1000);
 }
 
+function logOutUser() {
+    localStorage.clear();
+    location.reload();
+}
+
 window.addEventListener('load', function() {
     searchAnimation();
 })

@@ -31,13 +31,14 @@ ALLOWED_HOSTS = ['192.168.1.121']
 # Application definition
 
 INSTALLED_APPS = [
+    'culture_cloud.apps.CultureCloudConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'culture_cloud',
+    # 'culture_cloud',
 ]
 
 MIDDLEWARE = [
@@ -106,7 +107,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'EST'
 
 USE_I18N = True
 

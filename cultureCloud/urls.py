@@ -20,4 +20,10 @@ from culture_cloud import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name="index"),
+    path('signup', views.signup, name="signup"),
+    path('signin', views.signin, name="signin"),
+    path('createUser', views.createUser, name="createUser"),
+    path('signinUser', views.signinUser, name="signinUser"),
 ]
+    # path('testRequest', views.tester),
+    # path('verifier/<int:num>/', views.verifier),
