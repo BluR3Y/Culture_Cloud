@@ -23,6 +23,7 @@ from django.db import models
 class Country(models.Model):
     country_name = models.CharField(max_length=100)
     country_location = models.CharField(max_length=100)
+    country_flag = models.ImageField(upload_to='culture_cloud/countryFlags/')
     country_description = models.CharField(max_length=200)
     country_population = models.IntegerField(default=0)
     
