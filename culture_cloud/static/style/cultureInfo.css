@@ -1,0 +1,380 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
+
+:root {
+    --contWidth: 1200px;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cultureInfo {
+    width: fit-content;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    margin-top: 100px;
+    align-items: center;
+    bottom: 0;
+    right: 0;
+}
+.cultureInfo h1{
+    font-family: 'Inter', sans-serif;
+    font-size: 60px;
+    color: rgb(0, 0, 0);
+    color: #FF4500;
+    margin-right: 20px;
+    max-width: 600px;
+}
+.cultureInfo img {
+    width: 150px;
+    height: auto;
+}
+
+
+.mainCont{
+    width: 100%;
+    height: calc(100vh - 60px);
+    position: relative;
+    overflow: hidden;
+    margin-top: 60px;
+}
+
+.mainContent{
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: hidden;
+}
+
+.contentCont{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    display: none;
+}
+.contentItem{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+}
+
+.currentContent{
+    display: block !important;
+}
+
+@keyframes slideOutLeft{
+    from{
+        left: 0;
+    }to{
+        left: -100%;
+    }
+}
+@keyframes slideInLeft {
+    from{
+        left: 100%;
+    }to{
+        left: 0;
+    }
+}
+@keyframes slideOutRight {
+    from{
+        right: 0;
+    }to{
+        right: -100%;
+    }
+}
+@keyframes slideInRight {
+    from{
+        right: 100%;
+    }to{
+        right: 0;
+    }
+}
+
+.contentInfo{
+    position: absolute;
+    width: 600px;
+    height: auto;
+    bottom: 30px;
+    left: 30px;
+    z-index: 1;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    background-color: rgba(0, 0, 0,0.6);
+
+    transition: width 1s ease;
+}
+.contentInfo::-webkit-scrollbar{
+    display: none;
+}
+
+.hideContInfo{
+    width: 0 !important;
+}
+
+.infoCtrl {
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    right: -15px;
+    top: -15px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+
+    background-color: rgba(0, 0, 0,1);
+}
+.infoCtrl i {
+    color: white;
+}
+.closeBtn {
+    font-size: 25px;
+}
+.infoBtn {
+    font-size: 20px;
+    display: none;
+}
+
+.infoCont{
+    width: 100%;
+    height: auto;
+    max-height: 350px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin: 0;
+}
+.infoCont::-webkit-scrollbar{
+    display: none;
+}
+.infoCont h1{
+    color: white;
+    width: 95%;
+    margin: 2px 0 10px 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    border-bottom: 3px solid white;
+    text-overflow: ellipsis;
+    line-height: 40px;
+}
+.infoCont h2{
+    color: wheat;
+    font-size: 20px;
+    margin: 0 0 15px 10px;
+    width: 565px;
+}
+
+.contentOverlay{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+}
+
+.bannerArrow{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 55px;
+    cursor: pointer;
+    opacity: 0.6;
+}
+.bannerArrow:hover {
+    opacity: 1;
+}
+#bannerArrow_left {
+    margin-left: 20px;
+}
+#bannerArrow_right {
+    float: right;
+    margin-right: 20px;
+}
+
+.carouselCtrl{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 30px;
+    top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0,0.3);
+    user-select: none;
+    cursor: pointer;
+}
+.carouselCtrl:hover{
+    background-color: rgba(0, 0, 0,0.5);
+}
+.carouselCtrl h1{
+    font-family: 'Poppins', sans-serif;
+    font-size: 25px;
+    line-height: 25px;
+    color: white;
+    display: block;
+}
+.carouselCtrl i {
+    font-size: 20px;
+    color: white;
+    display: none;
+}
+
+.videoCtrl{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 20px;
+    left: 90px;
+    border-radius: 50px 50px 50px 50px;
+    background-color: rgba(0,0,0, 0.3);
+    transition: width 0.6s ease;
+    overflow: hidden;
+    /* display: flex; */
+    display: none;
+    flex-direction: row;
+}
+
+.expandVideoCtrl{
+    width: 840px;
+}
+
+.visibilityCtrl{
+    width: 40px;
+    height: 40px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.visibilityCtrl img{
+    cursor: pointer;
+}
+
+#visibilityOpen{
+    width: 68%;
+    height: auto;
+    filter: invert();
+    display: block;
+}
+#visibilityClose{
+    width: 50%;
+    height: auto;
+    filter: invert();
+    display: none;
+}
+
+.videoCtrlOptions{
+    width: 800px;
+    height: 40px;
+    position: absolute;
+    left: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.videoSliderCont{
+    height: 100%;
+    width: 650px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.videoSlider{
+    -webkit-appearance: none;
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+}
+.videoSlider:hover{
+    opacity: 1;
+}
+.videoSlider::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #ffffff;
+    cursor: pointer;
+}
+.videoSlider::-moz-range-thumb{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #dcfa14;
+    cursor: pointer;
+}
+
+#videoTime{
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    width: fit-content;
+    height: fit-content;
+    margin: 0 15px;
+    line-height: 25px;
+    justify-content: center;
+    color: white;
+}
+
+.audioCtrl{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.audioCtrl img{
+    width: 80%;
+    height: auto;
+    filter: invert();
+    cursor: pointer;
+}
+#muteBtn{
+    width: 55%;
+    height: auto;
+    display: block;
+}
+#unmuteBtn{
+    display: none;
+    width: 70%;
+    height: auto;
+}
+
+.videoPlayCtrl{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+}
+.videoPlayCtrl img{
+    filter: invert();
+    width: 55%;
+    height: auto;
+    cursor: pointer;
+}
+#playBtn{
+    display: none;
+}

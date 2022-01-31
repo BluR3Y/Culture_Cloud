@@ -22,6 +22,8 @@ urlpatterns = [
     path('', views.index, name="index"),
     path('signup', views.signup, name="signup"),
     path('signin', views.signin, name="signin"),
+    path('cultureInfo', views.cultureInfo, name="cultureInfo"),
+    # path('searchCulture/<slug:searchInput>/', views.searchCulture, name="culture"),
     path('createUser', views.createUser, name="createUser"),
     path('signinUser', views.signinUser, name="signinUser"),
 ]

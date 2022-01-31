@@ -1,3 +1,4 @@
+from turtle import pos
 from django.shortcuts import render
 # from django.http import HttpResponse
 
@@ -6,8 +7,6 @@ import json
 
 from culture_cloud.models import Country
 from culture_cloud.models import User
-#from django.views.decorators.csrf import csrf_exempt #This import will allow data to be sent without csrf token(temporary fix)
-#@csrf_exempt    #Will allow data to be sent to the view when sending with POST rather than GET
 
 
 # Create your views here.
@@ -20,6 +19,17 @@ def signup(request):
 
 def signin(request):
     return render(request, 'culture_cloud/signin.html')
+
+def cultureInfo(request):
+    return render(request, 'culture_cloud/cultureInfo.html')
+
+# def searchCulture(request,searchInput):
+#     possible = Country.objects.filter(country_name__contains=searchInput)
+#     print(possible)
+    
+#     return render(request, 'culture_cloud/searchCulture.html', {'seachInput': searchInput,'seachResults': possible})
+
+
 
 def createUser(request):
     userData = json.loads(request.body)
@@ -37,9 +47,6 @@ def createUser(request):
     else:
         return JsonResponse({'status':'failed','reason':'emailTaken'})
 
-    # newUser = User(user_name=userForm['username'], user_email=userForm['email'],user_password=userForm['password'])
-    # newUser.save()
-    # print(newUser.id)  
 
 def signinUser(request):
     userData = json.loads(request.body)
@@ -83,18 +90,3 @@ def signinUser(request):
     
 #     return JsonResponse({'lol':'keke'})
  
-# def dbAccess(request):
-#     first = User.objects.get(pk=2)
-#     firstName = first.user_name
-#     return HttpResponse(firstName)
-
- 
-# def getCountries(request):
-#     return HttpResponse("lol");
- 
- 
-# def tester(request):
-#     return JsonResponse({'foo':'bar'})  
-
-# def verifier(request,num):
-#     return JsonResponse({'haha':num})

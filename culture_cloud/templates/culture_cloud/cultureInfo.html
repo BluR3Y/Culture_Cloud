@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://kit.fontawesome.com/877bbb98b2.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="{% static 'style/cultureInfo.css' %}">
+    </head>
+    <body>
+        {% include 'culture_cloud/navBar.html' %}
+
+        <div class="mainCont">
+            <div class="mainContent">
+                <div class="contentCont currentContent">
+                    <img src="{% static 'images/bannerImgs/cancunBeach.jpeg' %}" class="contentItem">
+                    <div class="contentInfo">
+                        <div class="infoCtrl" onclick="displayContInfo()">
+                            <i class="fas fa-times closeBtn"></i>
+                            <i class="fas fa-info infoBtn"></i>
+                        </div>
+                        <div class="infoCont">
+                            <h1>Ahmad Bin Ali Stadium</h1>
+                            <h2>Ahmed bin Ali Stadium, popularly known as the Al-Rayyan Stadium, is a multi-purpose stadium in Al Rayyan, Qatar, It is currently used mostly for football matches and it is the home to Al-Rayyan Sports Club and Al-Kharitiyath Sports Club. The stadium, built in 2003, had a seating capacity of 21,282.</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="contentCont">
+                    <video class="contentItem">
+                        <source src="{% static 'images/bannerImgs/londonTourist.mp4' %}" type="video/mp4">
+                        Your browser does not support HTML video.
+                    </video>
+                    <div class="contentInfo">
+                        <div class="infoCtrl" onclick="displayContInfo()">
+                            <i class="fas fa-times closeBtn"></i>
+                            <i class="fas fa-info infoBtn"></i>
+                        </div>
+                        <div class="infoCont">
+                            <h1>FIFA World Cup Qatar 2022 - Emblem Reveal</h1>
+                            <h2>The Official Emblem of the 22nd edition of the FIFA #WorldCup was unveiled on the 4th of September back in 2019 as FIFA and host country Qatar reached another major milestone on the road to the world’s greatest football showpiece.</h2>
+                            <h2>The emblem’s design embodies the vision of an event that connects and engages the entire world, while also featuring striking elements of local and regional Arab culture and allusions to the beautiful game.</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="contentCont">
+                    <img src="{% static 'images/bannerImgs/hongKong.jpeg' %}" class="contentItem">
+                    <div class="contentInfo">
+                        <div class="infoCtrl" onclick="displayContInfo()">
+                            <i class="fas fa-times closeBtn"></i>
+                            <i class="fas fa-info infoBtn"></i>
+                        </div>
+                        <div class="infoCont">
+                            <h1>Al Bayt Stadium</h1>
+                            <h2>The Al Bayt Stadium is a retractable roof football stadium located in Al Khor city and it is the second largest stadium after Lusail. It is confirmed to host the first match scheduled for November 21st with 60,000 spectators.</h2>
+                            <h2>The municipality lies in the northeast coast of Qatar and it is considered to be one of the major cities.</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="contentCont">
+                    <img src="{% static 'images/bannerImgs/russianArchitecture.jpeg' %}" class="contentItem">
+                    <div class="contentInfo">
+                        <div class="infoCtrl" onclick="displayContInfo()">
+                            <i class="fas fa-times closeBtn"></i>
+                            <i class="fas fa-info infoBtn"></i>
+                        </div>
+                        <div class="infoCont">
+                            <h1>Al Janoub Stadium</h1>
+                            <h2>One of Qatar's oldest continuously inhabited areas, Al Wakrah was long a centre for pearl diving and fishing. The traditional dhow boats used in these pursuits inspired the design of Al Janoub Stadium. At its inauguration, a stunning pre-match show paid tribute to Al Wakrah's heritage and to Zaha Hadid, the architect whose firm designed the stadium's boldly futuristic shape.</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="contentCont">
+                    <img src="{% static 'images/bannerImgs/thailandeseCulture.jpeg' %}" class="contentItem">
+                    <div class="contentInfo">
+                        <div class="infoCtrl" onclick="displayContInfo()">
+                            <i class="fas fa-times closeBtn"></i>
+                            <i class="fas fa-info infoBtn"></i>
+                        </div>
+                        <div class="infoCont">
+                            <h1>Khalifa International Stadium</h1>
+                            <h2>Khalifa International Stadium, also known as National Stadium, is a multi-purpose stadium in Doha, Qatar, as part of the Doha Sports City complex, which also includes Aspire Academy, Hamad Aquatic Centre, and the Aspire Tower. It is named after Khalifa bin Hamad Al Thani, Qatar's former Emir.</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contentOverlay">
+                <div class="carouselCtrl" onclick="carouselControl()">
+                    <h1></h1>
+                    <i class="fas fa-infinity"></i>
+                </div>
+                <div class="videoCtrl">
+                    <div class="visibilityCtrl">
+                        <img src="images/bannerCosmetics/video.png" id="visibilityOpen" onclick="expandVideoCtrl()">
+                        <img src="images/bannerCosmetics/close.png" id="visibilityClose" onclick="closeVideoCtrl()">
+                    </div>
+                    <div class="videoCtrlOptions">
+                        <div class="videoSliderCont">
+                            <input type="range" min="0" max="500" value="0" class="videoSlider" oninput="changeVideoTime()">
+                        </div>
+                        <h1 id="videoTime"></h1>
+                        <div class="audioCtrl">
+                            <img src="images/bannerCosmetics/mute.png" id="muteBtn" onclick="videoItem.unmute()">
+                            <img src="images/bannerCosmetics/unmute.png" id="unmuteBtn" onclick="videoItem.mute()">
+                        </div>
+                        <div class="videoPlayCtrl">
+                            <img src="images/bannerCosmetics/pause.png" id="pauseBtn" onclick="videoItem.pause()">
+                            <img src="images/bannerCosmetics/play.png" id="playBtn" onclick="videoItem.resume()">
+                        </div>
+                    </div>
+                </div>
+                <div class="cultureInfo">
+                    <h1>The United States of America</h1>
+                    <img src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg">
+                </div>
+                <i class="fas fa-arrow-circle-left bannerArrow" id="bannerArrow_left" onclick="prevBannerImg()"></i>
+                <i class="fas fa-arrow-circle-right bannerArrow" id="bannerArrow_right" onclick="nextBannerImg()"></i>
+            </div>
+        </div>
+        
+        <script src="{% static 'script/cultureInfo.js' %}" async defer></script>
+    </body>
+</html>
