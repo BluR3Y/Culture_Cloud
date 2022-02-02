@@ -24,6 +24,7 @@ body {
     align-items: center;
     top: 20px;
     left: 20px;
+    user-select: none;
 }
 .cultureInfo h1{
     font-family: 'Roboto', sans-serif;
@@ -126,7 +127,8 @@ body {
     height: 35px;
     position: absolute;
     right: -15px;
-    top: -15px;
+    top: 50%;
+    transform: translateY(-50%);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -233,58 +235,49 @@ body {
     display: none;
 }
 
-.videoCtrl{
+.videoCtrl {
     position: absolute;
     width: 40px;
     height: 40px;
     top: 20px;
-    right: 90px;    /*left*/
+    right: 90px;
     border-radius: 50px 50px 50px 50px;
-    background-color: rgba(0,0,0, 0.3);
+    background-color: rgba(0, 0, 0,0.3);
     transition: width 0.6s ease;
     overflow: hidden;
-    /* display: flex; */
     display: none;
-    flex-direction: row;
 }
 
-.expandVideoCtrl{
+.expandVideoCtrl {
     width: 840px;
 }
 
-.visibilityCtrl{
+.visibilityCtrl {
     width: 40px;
     height: 40px;
-    position: relative;
+    position: absolute;
+    right: 0;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.visibilityCtrl img{
+.visibilityCtrl i{
+    font-size: 25px;
+    filter: invert();
     cursor: pointer;
 }
-
-#visibilityOpen{
-    width: 68%;
-    height: auto;
-    filter: invert();
-    display: block;
-}
 #visibilityClose{
-    width: 50%;
-    height: auto;
-    filter: invert();
     display: none;
 }
 
-.videoCtrlOptions{
+.videoCtrlOptions {
     width: 800px;
     height: 40px;
-    position: absolute;
-    left: 40px;
     display: flex;
     flex-direction: row;
     align-items: center;
+    position: absolute;
+    right: 40px;
 }
 
 .videoSliderCont{
@@ -334,6 +327,9 @@ body {
     line-height: 25px;
     justify-content: center;
     color: white;
+    width: 90px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .audioCtrl{
@@ -342,22 +338,18 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-left: 10px;
 }
-.audioCtrl img{
-    width: 80%;
-    height: auto;
+.audioCtrl i{
+    font-size: 20px;
     filter: invert();
     cursor: pointer;
 }
 #muteBtn{
-    width: 55%;
-    height: auto;
     display: block;
 }
 #unmuteBtn{
     display: none;
-    width: 70%;
-    height: auto;
 }
 
 .videoPlayCtrl{
@@ -366,14 +358,80 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 5px;
+    margin: 0 5px;
 }
-.videoPlayCtrl img {
+.videoPlayCtrl i{
     filter: invert();
-    width: 55%;
-    height: auto;
+    font-size: 20px;
     cursor: pointer;
 }
 #playBtn {
     display: none;
+}
+/* ------------------------ Sections ----------------------- */
+.sectionCont {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sectionHeader {
+    width: 1200px;
+    height: 90px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 40px auto;
+}
+.sectionHeader div {
+    flex-grow: 1;
+    flex-basis: 1;
+    height: 5px;
+    background-color: red;
+    border-radius: 5px;
+}
+.sectionHeader h1{
+    font-family: 'Poppins', sans-serif;
+    font-size: 40px;
+    margin: 0 10px;
+    text-transform: uppercase;
+}
+
+/* ---------------------- section 1 -------------------------- */
+
+.traditionCont {
+    width: 1200px;
+    height: 700px;
+    display: flex;
+    flex-direction: row;
+
+    border: 1px solid red;
+}
+
+.traditionSelection {
+    width: 280px;
+    height: 100%;
+    display: block;
+    overflow-y: scroll;
+}
+.traditionSelection::-webkit-scrollbar {
+    display: none;
+}
+
+.traditionList{
+    width: 100%;
+    height: 100%;
+    list-style-type: none;
+    background-color: red;
+    padding: 0;
+}
+.traditionList li {
+    display: block;
+    width: 100%;
+    height: 60px;
+    cursor: pointer;
+
+    background-color: yellow;
 }

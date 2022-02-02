@@ -23,8 +23,9 @@ def signin(request):
 def cultureInfo(request):
     testCountry = Country.objects.get(country_name__contains="The United")
     testImgs = testCountry.countrybannerimg_set.all()
+    testVids = testCountry.countrybannervid_set.all()
     print(testImgs)
-    return render(request, 'culture_cloud/cultureInfo.html', {'country': testCountry, 'bannerImgs': testImgs})
+    return render(request, 'culture_cloud/cultureInfo.html', {'country': testCountry, 'bannerImgs': testImgs, 'bannerVids': testVids})
 
 # def searchCulture(request,searchInput):
 #     possible = Country.objects.filter(country_name__contains=searchInput)

@@ -15,66 +15,54 @@
 
         <div class="mainCont">
             <div class="mainContent">
-                <!-- <div class="contentCont currentContent">
-                    <img src="{% static 'images/bannerImgs/cancunBeach.jpeg' %}" class="contentItem">
-                    <div class="contentInfo">
-                        <div class="infoCtrl" onclick="displayContInfo()">
-                            <i class="fas fa-times closeBtn"></i>
-                            <i class="fas fa-info infoBtn"></i>
-                        </div>
-                        <div class="infoCont">
-                            <h1>Ahmad Bin Ali Stadium</h1>
-                            <h2>Ahmed bin Ali Stadium, popularly known as the Al-Rayyan Stadium, is a multi-purpose stadium in Al Rayyan, Qatar, It is currently used mostly for football matches and it is the home to Al-Rayyan Sports Club and Al-Kharitiyath Sports Club. The stadium, built in 2003, had a seating capacity of 21,282.</h2>
-                        </div>
-                    </div>
-                </div> -->
-                <!-- <div class="contentCont">
-                    <video class="contentItem">
-                        <source src="{% static 'images/bannerImgs/londonTourist.mp4' %}" type="video/mp4">
-                        Your browser does not support HTML video.
-                    </video>
-                    <div class="contentInfo">
-                        <div class="infoCtrl" onclick="displayContInfo()">
-                            <i class="fas fa-times closeBtn"></i>
-                            <i class="fas fa-info infoBtn"></i>
-                        </div>
-                        <div class="infoCont">
-                            <h1>FIFA World Cup Qatar 2022 - Emblem Reveal</h1>
-                            <h2>The Official Emblem of the 22nd edition of the FIFA #WorldCup was unveiled on the 4th of September back in 2019 as FIFA and host country Qatar reached another major milestone on the road to the world’s greatest football showpiece.</h2>
-                            <h2>The emblem’s design embodies the vision of an event that connects and engages the entire world, while also featuring striking elements of local and regional Arab culture and allusions to the beautiful game.</h2>
-                        </div>
-                    </div>
-                </div> -->
                 {% for bannerImg in bannerImgs %}
                     {% if bannerImg == bannerImgs.0 %}
-                    <div class="contentCont currentContent">
-                        <img src="{{ bannerImg.image_upload.url }}" class="contentItem">
-                        <div class="contentInfo">
-                            <div class="infoCtrl" onclick="displayContInfo()">
-                                <i class="fas fa-times closeBtn"></i>
-                                <i class="fas fa-info infoBtn"></i>
-                            </div>
-                            <div class="infoCont">
-                                <h1>{{ bannerImg.image_name }}</h1>
-                                <h2>{{ bannerImg.image_description }}</h2>
+                        <div class="contentCont currentContent">
+                            <img src="{{ bannerImg.image_upload.url }}" class="contentItem">
+                            <div class="contentInfo">
+                                <div class="infoCtrl" onclick="displayContInfo()">
+                                    <i class="fas fa-times closeBtn"></i>
+                                    <i class="fas fa-info infoBtn"></i>
+                                </div>
+                                <div class="infoCont">
+                                    <h1>{{ bannerImg.image_name }}</h1>
+                                    <h2>{{ bannerImg.image_description }}</h2>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     {% else %}
+                        <div class="contentCont">
+                            <img src="{{ bannerImg.image_upload.url }}" class="contentItem">
+                            <div class="contentInfo">
+                                <div class="infoCtrl" onclick="displayContInfo()">
+                                    <i class="fas fa-times closeBtn"></i>
+                                    <i class="fas fa-info infoBtn"></i>
+                                </div>
+                                <div class="infoCont">
+                                    <h1>{{ bannerImg.image_name }}</h1>
+                                    <h2>{{ bannerImg.image_description }}</h2>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                {% for bannerVideo in bannerVids %}
                     <div class="contentCont">
-                        <img src="{{ bannerImg.image_upload.url }}" class="contentItem">
+                        <video class="contentItem">
+                            <source src="{{ bannerVideo.video_upload.url }}" type="video/mp4">
+                            Your browser does not support HTML video.
+                        </video>
                         <div class="contentInfo">
                             <div class="infoCtrl" onclick="displayContInfo()">
                                 <i class="fas fa-times closeBtn"></i>
                                 <i class="fas fa-info infoBtn"></i>
                             </div>
                             <div class="infoCont">
-                                <h1>{{ bannerImg.image_name }}</h1>
-                                <h2>{{ bannerImg.image_description }}</h2>
+                                <h1>{{ bannerVideo.video_name }}</h1>
+                                <h2>{{ bannerVideo.video_description }}</h2>
                             </div>
                         </div>
                     </div>
-                    {% endif %}
                 {% endfor %}
                 
             </div>
@@ -85,22 +73,22 @@
                 </div>
                 <div class="videoCtrl">
                     <div class="visibilityCtrl">
-                        <img src="images/bannerCosmetics/video.png" id="visibilityOpen" onclick="expandVideoCtrl()">
-                        <img src="images/bannerCosmetics/close.png" id="visibilityClose" onclick="closeVideoCtrl()">
+                        <i class="fas fa-ellipsis-v" id="visibilityOpen" onclick="expandVideoCtrl()"></i>
+                        <i class="fas fa-times" id="visibilityClose" onclick="closeVideoCtrl()"></i>
                     </div>
                     <div class="videoCtrlOptions">
+                        <div class="audioCtrl">
+                            <i class="fas fa-volume-mute" id="muteBtn" onclick="videoItem.unmute()"></i>
+                            <i class="fas fa-volume-up" id="unmuteBtn" onclick="videoItem.mute()"></i>
+                        </div>
+                        <div class="videoPlayCtrl">
+                            <i class="fas fa-pause" id="pauseBtn" onclick="videoItem.pause()"></i>
+                            <i class="fas fa-play" id="playBtn" onclick="videoItem.resume()"></i>
+                        </div>
                         <div class="videoSliderCont">
                             <input type="range" min="0" max="500" value="0" class="videoSlider" oninput="changeVideoTime()">
                         </div>
                         <h1 id="videoTime"></h1>
-                        <div class="audioCtrl">
-                            <img src="images/bannerCosmetics/mute.png" id="muteBtn" onclick="videoItem.unmute()">
-                            <img src="images/bannerCosmetics/unmute.png" id="unmuteBtn" onclick="videoItem.mute()">
-                        </div>
-                        <div class="videoPlayCtrl">
-                            <img src="images/bannerCosmetics/pause.png" id="pauseBtn" onclick="videoItem.pause()">
-                            <img src="images/bannerCosmetics/play.png" id="playBtn" onclick="videoItem.resume()">
-                        </div>
                     </div>
                 </div>
                 <div class="cultureInfo">
@@ -109,6 +97,23 @@
                 </div>
                 <i class="fas fa-arrow-circle-left bannerArrow" id="bannerArrow_left" onclick="prevBannerImg()"></i>
                 <i class="fas fa-arrow-circle-right bannerArrow" id="bannerArrow_right" onclick="nextBannerImg()"></i>
+            </div>
+        </div>
+        <div class="sectionCont" id="traditionSec" style="height: 1000px;">
+            <div class="sectionHeader">
+                <div></div>
+                <h1>Traditions</h1>
+                <div></div>
+            </div>
+            <div class="traditionCont">
+                <div class="traditionSelection">
+                    <ul class="traditionList">
+                        <li>
+                            
+                        </li>
+
+                    </ul>
+                </div>
             </div>
         </div>
         
