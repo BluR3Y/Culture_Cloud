@@ -368,12 +368,12 @@ body {
     justify-content: center;
     margin-left: 5px;
 }
-.videoPlayCtrl img{
+.videoPlayCtrl img {
     filter: invert();
     width: 55%;
     height: auto;
     cursor: pointer;
 }
-#playBtn{
+#playBtn {
     display: none;
 }
