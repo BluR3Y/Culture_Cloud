@@ -15,7 +15,7 @@
 
         <div class="mainCont">
             <div class="mainContent">
-                <div class="contentCont currentContent">
+                <!-- <div class="contentCont currentContent">
                     <img src="{% static 'images/bannerImgs/cancunBeach.jpeg' %}" class="contentItem">
                     <div class="contentInfo">
                         <div class="infoCtrl" onclick="displayContInfo()">
@@ -27,8 +27,8 @@
                             <h2>Ahmed bin Ali Stadium, popularly known as the Al-Rayyan Stadium, is a multi-purpose stadium in Al Rayyan, Qatar, It is currently used mostly for football matches and it is the home to Al-Rayyan Sports Club and Al-Kharitiyath Sports Club. The stadium, built in 2003, had a seating capacity of 21,282.</h2>
                         </div>
                     </div>
-                </div>
-                <div class="contentCont">
+                </div> -->
+                <!-- <div class="contentCont">
                     <video class="contentItem">
                         <source src="{% static 'images/bannerImgs/londonTourist.mp4' %}" type="video/mp4">
                         Your browser does not support HTML video.
@@ -44,47 +44,39 @@
                             <h2>The emblem’s design embodies the vision of an event that connects and engages the entire world, while also featuring striking elements of local and regional Arab culture and allusions to the beautiful game.</h2>
                         </div>
                     </div>
-                </div>
-                <div class="contentCont">
-                    <img src="{% static 'images/bannerImgs/hongKong.jpeg' %}" class="contentItem">
-                    <div class="contentInfo">
-                        <div class="infoCtrl" onclick="displayContInfo()">
-                            <i class="fas fa-times closeBtn"></i>
-                            <i class="fas fa-info infoBtn"></i>
-                        </div>
-                        <div class="infoCont">
-                            <h1>Al Bayt Stadium</h1>
-                            <h2>The Al Bayt Stadium is a retractable roof football stadium located in Al Khor city and it is the second largest stadium after Lusail. It is confirmed to host the first match scheduled for November 21st with 60,000 spectators.</h2>
-                            <h2>The municipality lies in the northeast coast of Qatar and it is considered to be one of the major cities.</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="contentCont">
-                    <img src="{% static 'images/bannerImgs/russianArchitecture.jpeg' %}" class="contentItem">
-                    <div class="contentInfo">
-                        <div class="infoCtrl" onclick="displayContInfo()">
-                            <i class="fas fa-times closeBtn"></i>
-                            <i class="fas fa-info infoBtn"></i>
-                        </div>
-                        <div class="infoCont">
-                            <h1>Al Janoub Stadium</h1>
-                            <h2>One of Qatar's oldest continuously inhabited areas, Al Wakrah was long a centre for pearl diving and fishing. The traditional dhow boats used in these pursuits inspired the design of Al Janoub Stadium. At its inauguration, a stunning pre-match show paid tribute to Al Wakrah's heritage and to Zaha Hadid, the architect whose firm designed the stadium's boldly futuristic shape.</h2>
+                </div> -->
+                {% for bannerImg in bannerImgs %}
+                    {% if bannerImg == bannerImgs.0 %}
+                    <div class="contentCont currentContent">
+                        <img src="{{ bannerImg.image_upload.url }}" class="contentItem">
+                        <div class="contentInfo">
+                            <div class="infoCtrl" onclick="displayContInfo()">
+                                <i class="fas fa-times closeBtn"></i>
+                                <i class="fas fa-info infoBtn"></i>
+                            </div>
+                            <div class="infoCont">
+                                <h1>{{ bannerImg.image_name }}</h1>
+                                <h2>{{ bannerImg.image_description }}</h2>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="contentCont">
-                    <img src="{% static 'images/bannerImgs/thailandeseCulture.jpeg' %}" class="contentItem">
-                    <div class="contentInfo">
-                        <div class="infoCtrl" onclick="displayContInfo()">
-                            <i class="fas fa-times closeBtn"></i>
-                            <i class="fas fa-info infoBtn"></i>
-                        </div>
-                        <div class="infoCont">
-                            <h1>Khalifa International Stadium</h1>
-                            <h2>Khalifa International Stadium, also known as National Stadium, is a multi-purpose stadium in Doha, Qatar, as part of the Doha Sports City complex, which also includes Aspire Academy, Hamad Aquatic Centre, and the Aspire Tower. It is named after Khalifa bin Hamad Al Thani, Qatar's former Emir.</h2>
+                    {% else %}
+                    <div class="contentCont">
+                        <img src="{{ bannerImg.image_upload.url }}" class="contentItem">
+                        <div class="contentInfo">
+                            <div class="infoCtrl" onclick="displayContInfo()">
+                                <i class="fas fa-times closeBtn"></i>
+                                <i class="fas fa-info infoBtn"></i>
+                            </div>
+                            <div class="infoCont">
+                                <h1>{{ bannerImg.image_name }}</h1>
+                                <h2>{{ bannerImg.image_description }}</h2>
+                            </div>
                         </div>
                     </div>
-                </div>
+                    {% endif %}
+                {% endfor %}
+                
             </div>
             <div class="contentOverlay">
                 <div class="carouselCtrl" onclick="carouselControl()">
@@ -112,8 +104,8 @@
                     </div>
                 </div>
                 <div class="cultureInfo">
-                    <h1>The United States of America</h1>
-                    <img src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg">
+                    <h1>{{ country.country_name }}</h1>
+                    <img src="{{ country.country_flag.url }}">
                 </div>
                 <i class="fas fa-arrow-circle-left bannerArrow" id="bannerArrow_left" onclick="prevBannerImg()"></i>
                 <i class="fas fa-arrow-circle-right bannerArrow" id="bannerArrow_right" onclick="nextBannerImg()"></i>

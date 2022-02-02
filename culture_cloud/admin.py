@@ -1,8 +1,12 @@
 from django.contrib import admin
 from .models import Country
-from .models import Food
+from .models import countryBannerImg
+from .models import countryBannerVid
+# from .models import Food
 
 # Register your models here.
 
 admin.site.register(Country)
-admin.site.register(Food)
+admin.site.register(countryBannerImg)
+admin.site.register(countryBannerVid)
+# admin.site.register(Food)
